@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9bf81300c6.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="hero">
+        <i id="email-icon" class="fa-solid fa-envelope"></i>
+        <div class="input-group">
+            <label id="email-label"></label>
+            <input id="email-field" type="email" spellcheck="false" placeholder="Email" onkeyup="validateEmail()">
+            <span id="email-error"></span>
+        </div>
+    </div>
+
+    <script>
+        const emailField = document.getElementById('email-field');
+        const emailError = document.getElementById('email-error');
+        const emailIcon = document.getElementById('email-icon');
+
+        function validateEmail(){
+            if(!emailField.value.match((/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))){
+                emailError.innerHTML = 'Please enter a valid email';
+                emailError.style.color = 'red';
+                emailError.style.top = "120%"
+                emailIcon.style.color = "red";
+                return false;
+            }
+            else{
+                emailError.innerHTML = 'Valid email';
+                emailError.style.color = 'green';
+                emailIcon.style.color = "green";
+                emailError.style.top = "120%"
+                return true;
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
